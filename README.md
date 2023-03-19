@@ -2,25 +2,19 @@
 # c-tcp-server
 
 TCP Server for chat service written in cpp
-
 ## Requirements
 
 You'll need gcc to build the server.
 
 ## Installation
-
-will update MakeFile and provide support for `make` command. Right now you can use:
-
-```
-gcc src/main.cpp src/client.cpp -o server && ./server
-
-```
-
-to build and run server
+`make`
 
 ## Usage
 
-You can use netcat to connect to server
+use `make run` to start the server
+
+You can use netcat to connect to the server
+
 ```
 nc 127.0.0.1 8080
 ```
