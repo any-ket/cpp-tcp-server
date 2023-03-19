@@ -11,7 +11,7 @@ You'll need gcc to build the server.
 will update MakeFile and provide support for `make` command. Right now you can use:
 
 ```
-gcc src/main.cpp src/client.cpp -o server && ./server
+g++ src/main.cpp src/client.cpp -o server && ./server
 
 ```
 

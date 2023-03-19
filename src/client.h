@@ -8,7 +8,7 @@
 
 class tcp_socket {
   private:
-    int sockfd, connfd;
+    int sockfd;
     struct sockaddr_in servaddr, cli;
   public:
     tcp_socket();
