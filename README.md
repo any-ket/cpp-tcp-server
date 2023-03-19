@@ -1,28 +1,29 @@
-# c-project-structure
 
-Project description
+# c-tcp-server
 
-Project image/gif
+TCP Server for chat service written in cpp
 
 ## Requirements
 
-Requirements
+You'll need gcc to build the server.
 
 ## Installation
 
-`make`
+will update MakeFile and provide support for `make` command. Right now you can use:
+
+```
+gcc src/main.cpp src/client.cpp -o server && ./server
+
+```
+
+to build and run server
 
 ## Usage
 
-`bin/run`
-
-## Example
-
-`bin/run`
-
-## Documentation
-
-Location of Documentation
+You can use netcat to connect to server
+```
+nc 127.0.0.1 8080
+```
 
 ## Directory structure
 ```
