@@ -1,6 +1,6 @@
 CC := g++
 SRCDIR := src
-BUILDDIR := build/
+BUILDDIR := build
 TARGET := bin/run
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
@@ -25,14 +25,3 @@ clean:
 run :
 	@echo " Starting server";
 	@./bin/run
-
-# Tests
-tester:
-	$(CC) $(CFLAGS) test/tester.cpp $(INC) $(LIB) -o bin/tester
-
-
-# Spikes
-ticket:
-	$(CC) $(CFLAGS) spikes/ticket.cpp $(INC) $(LIB) -o bin/ticket
-
-.PHONY: clean
