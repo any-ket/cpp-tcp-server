@@ -4,7 +4,7 @@
 TCP Server for chat service written in cpp
 ## Requirements
 
-You'll need gcc to build the server.
+You'll need g++ compiler to build the server.
 
 ## Installation
 `make`
