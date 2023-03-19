@@ -29,11 +29,11 @@ void * chat(void* connfd)
     // read the message from client and copy it in buffer
     read((*(int *)connfd), buff, sizeof(buff));
     // print buffer which contains the client contents
-    printf("From client: %s", buff);
+    printf("From client: %s\n", buff);
 
     // if msg contains "Exit" then server exit and chat ended.
-    if (strncmp("exit", buff, 4) == 0) {
-      printf("Server Exit...\n");
+    if (strncmp("exit", buff, 4) == 0 || strncmp("", buff, 1) == 0) {
+      printf("client disconnected...\n");
       close(*(int *)connfd);
       break;
     }
