@@ -9,7 +9,7 @@
 class tcp_socket {
   private:
     int sockfd;
-    struct sockaddr_in servaddr, cli;
+    struct sockaddr_in servaddr;
   public:
     tcp_socket();
 };
