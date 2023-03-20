@@ -28,8 +28,6 @@ void * chat(void* connfd)
     bzero(buff, MAX);
     // read the message from client and copy it in buffer
     read((*(int *)connfd), buff, sizeof(buff));
-    // print buffer which contains the client contents
-    printf("From client: %s\n", buff);
 
     // if msg contains "Exit" then server exit and chat ended.
     if (strncmp("exit", buff, 4) == 0 || strncmp("", buff, 1) == 0) {
@@ -37,6 +35,10 @@ void * chat(void* connfd)
       close(*(int *)connfd);
       break;
     }
+
+    // print buffer which contains the client contents
+    printf("From client: %s\n", buff);
+
   }
   pthread_exit(NULL);
 }
@@ -75,26 +77,26 @@ tcp_socket::tcp_socket(){
   else
     printf("Server listening.. on %d\n", PORT);
 
+  // Accept the data packet from client and verification
+  std::vector<pthread_t> threads;
+  std::vector<struct sockaddr_in> clients;
+  std::vector<int> connfd;
 
-   // Accept the data packet from client and verification
-  //TODO: add multithreading to handle connection with multiple clients
-  int i = MAX;
-  std::vector<pthread_t> threads(i);
-  std::vector<struct sockaddr_in> clients(i);
-  std::vector<int> connfd(i);
-  while(i--){
+  for(int i =0;;i++){
+    pthread_t thrd;
+    threads.push_back(thrd);
     socklen_t len = sizeof(clients[i]);
-     connfd[i] = accept(sockfd, (SA*)&clients[i], &len);
-     if (connfd[i] < 0) {
+     int connfd = accept(sockfd, (SA*)&clients[i], &len);
+     if (connfd < 0) {
        printf("server accept failed...\n");
        exit(0);
      }
      else
        printf("server accept the client...\n");
 
-    // Function for chatting between client and server
-     //create a thread to chat
-    pthread_create(&threads[i], NULL, chat, (void *) &connfd[i]);
+    //create a thread to chat
+
+    pthread_create(&thrd, NULL, chat, (void *) &connfd);
   }
   pthread_exit(NULL);
 }
