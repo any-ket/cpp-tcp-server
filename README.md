@@ -1,5 +1,5 @@
 
-# c-tcp-server
+# cpp-tcp-server
 
 TCP Server for chat service written in cpp
 ## Requirements
