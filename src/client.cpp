@@ -1,16 +1,5 @@
-#include <arpa/inet.h>
-#include <cstdio>
-#include <exception>
 #include <stdio.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/_pthread/_pthread_t.h>
-#include <sys/socket.h>
-#include <sys/types.h>
 #include <pthread.h>
-#include <thread>
 #include <vector>
 #include <unistd.h> // read(), write(), close()
 
@@ -57,7 +46,7 @@ tcp_socket::tcp_socket(){
   bzero(&servaddr, sizeof(servaddr));
 
   servaddr.sin_family = AF_INET;
-  servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+  servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
   servaddr.sin_port = htons(PORT);
 
   // Binding newly created socket to given IP and verification
