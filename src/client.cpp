@@ -2,6 +2,9 @@
 #include <pthread.h>
 #include <vector>
 #include <unistd.h> // read(), write(), close()
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define SA struct sockaddr
 
